@@ -66,7 +66,23 @@ public class Main {
 
         //Задание 4
         System.out.println("\nЗадание 4");
-        int fridayDate = 7;
+        int fridayDate;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите дату первой пятницы (от 1 до 7)");
+        while (true){
+            while(!scan.hasNextInt()){
+                System.out.println("Введено недопустимое значение, попробуйте снова: ");
+                scan.nextLine();
+            }
+            fridayDate=scan.nextInt();
+            if (fridayDate >= 1 && fridayDate <= 7){
+                break;
+            }
+            else{
+                System.out.println("Значение должно быть от 1 до 7 включительно");
+                scan.nextLine();
+            }
+        }
         while(fridayDate <= 31){
             System.out.println("Сегодня пятница, "+fridayDate+"-е число. Необходимо подготовить отчет.");
             fridayDate+=7;
@@ -75,7 +91,6 @@ public class Main {
         //Домашнее задание - 3
         //Задание 1
         int yearCounter, referenceYear;
-        Scanner scan = new Scanner(System.in);
         System.out.println("\n\033[4mДомашнее задание - 3\033[0m \nЗадание 1");
 
         System.out.println("\nУкажите год отсчёта:");
